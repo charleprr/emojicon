@@ -1,2 +1,5 @@
+# Dependencies
 node_modules/
+
+# Configuration file
 config.json
