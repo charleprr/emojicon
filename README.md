@@ -44,4 +44,5 @@ I am always looking for improvements, feel free to contribute to this project!<b
 You can star this repository, send suggestions and ideas, open issues and create pull requests.
 
 ## License
-Released under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) License.
+Released under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) License.<br/>
+Emoji assets are from [Twemoji](https://github.com/twitter/twemoji) and licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
