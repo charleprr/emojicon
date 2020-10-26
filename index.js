@@ -33,6 +33,17 @@ client.on('message', async m => {
         return m.channel.send('`⏰ Cooldown! '+seconds+' seconds remaining.`');
     }
 
+    // Check for permissions
+    if (m.guild) {
+        const permissions = m.channel.permissionsFor(m.guild.me);
+        if (!permissions.has('SEND_MESSAGES')) return;
+        if (permissions.has('USE_EXTERNAL_EMOJIS') && config.blank !== '') {
+            Emoji.BLANK = config.blank;
+        } else {
+            Emoji.BLANK = ':heavy_minus_sign:';
+        }
+    }
+
     // Parse message arguments
     let url, w, h;
     let large = true;
