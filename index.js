@@ -25,7 +25,7 @@ client.on('message', async m => {
     // Block unwanted requests
     if (m.author.bot) return;
     if (m.channel.lock) return;
-    if (!m.mentions.has(client.user)) return;
+    if (!m.content.match(new RegExp(`^<@!?${client.user.id}>`))) return;
 
     // Check if the user has a cooldown
     if (m.author.cooldown > Date.now()) {
