@@ -2,8 +2,8 @@
     <img src="https://cdn.discordapp.com/emojis/768872298383933531.png?v=1" width="128"/>
 </p>
 <p align="center">
-    <a href="https://github.com/charlypoirier/emojicon/">
-        <img alt="undefined" src="https://img.shields.io/badge/Release-v2.0.0-1389BF.svg">
+    <a href="https://github.com/charlypoirier/emojicon/releases">
+        <img alt="undefined" src="https://img.shields.io/badge/Release-v2.0.1-1389BF.svg">
     </a>
     <a href="https://github.com/charlypoirier/emojicon/blob/main/LICENSE">
         <img alt="undefined" src="https://img.shields.io/badge/License-GNU_GPLv3-F56831.svg">
