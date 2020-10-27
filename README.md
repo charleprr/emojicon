@@ -1,15 +1,18 @@
 <p align="center">
-    <img src="https://cdn.discordapp.com/emojis/768872298383933531.png?v=1" width="128"/>
+    <img src="https://cdn.discordapp.com/emojis/768872298383933531.png?v=1" width="128"/><br/>
 </p>
+<h1 align="center">
+    Emojicon
+</h1>
 <p align="center">
+    <a href="https://nodejs.org/en/">
+        <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-14+-07a31e.svg">
+    </a>
     <a href="https://github.com/charlypoirier/emojicon/releases">
         <img alt="Release" src="https://img.shields.io/badge/Release-v2.0.1-1389BF.svg">
     </a>
     <a href="https://github.com/charlypoirier/emojicon/blob/main/LICENSE">
         <img alt="License" src="https://img.shields.io/badge/License-GNU_GPLv3-F56831.svg">
-    </a>
-    <a href="https://nodejs.org/en/">
-        <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-14+-07a31e.svg">
     </a><br/>
     <a href="https://github.com/charlypoirier/emojicon#overview">Overview</a> •
     <a href="https://github.com/charlypoirier/emojicon#installation">Installation</a> •
@@ -18,13 +21,15 @@
 </p>
 
 ## Overview
-Emojicon is a Discord bot that converts images into emojis!
+A Discord bot that converts images into emojis!
 
-<img src="https://i.imgur.com/pJGbrit.png" height="310"/>
+<p align="center">
+    <img src="https://i.imgur.com/an5b3p7.png" height="340"/>
+</p>
 
-[Bot invite](https://discordapp.com/api/oauth2/authorize?client_id=591203757287538690&permissions=0&scope=bot)</br>
-[Support server](https://discord.gg/xDMAxZD)</br>
-[Vote for Emojicon](https://top.gg/bot/591203757287538690)
+It supports image formats that are supported by [Jimp](https://github.com/oliver-moran/jimp) (`JPEG`, `PNG`, `BMP`, `TIFF` and `GIF`) and works with default emojis, custom emojis, image links and attachments. The size can be customized, up to 30x50 emojis in server channels and 50x200 emojis in direct messages.
+
+[Invite the bot](https://discordapp.com/api/oauth2/authorize?client_id=591203757287538690&permissions=0&scope=bot) to your server or [join our support server](https://discord.gg/xDMAxZD) for updates, early new features and special roles.
 
 ## Installation
 Run `npm install` to install dependencies.
