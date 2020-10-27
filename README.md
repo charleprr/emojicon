@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://cdn.discordapp.com/emojis/768872298383933531.png?v=1" width="128"/><br/>
+    <img src="https://cdn.discordapp.com/emojis/768872298383933531.png?v=1" width="96"/><br/>
 </p>
 <h1 align="center">
     Emojicon
