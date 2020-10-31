@@ -19,7 +19,7 @@
     ],
     "scripts": {
         "start": "node index.js",
-        "test": "mocha ./tests -s 250"
+        "test": "mocha ./tests -s 750"
     },
     "author": "Charly Poirier",
     "license": "ISC"
