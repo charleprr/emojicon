@@ -109,7 +109,7 @@ client.on('message', async m => {
 
     } catch (e) {
         let errorEmbed = new Discord.MessageEmbed();
-        if (e.message === 'Could not find MIME for Buffer <null>') {
+        if (e.message.includes('MIME')) {
             errorEmbed.setDescription('❌ This filetype is not supported');
         } else {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
