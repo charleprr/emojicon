@@ -24,7 +24,7 @@
 A Discord bot that converts images into emojis!
 
 <p align="center">
-    <img src="https://i.imgur.com/an5b3p7.png" height="340"/>
+    <img src="https://i.imgur.com/tSUZJA4.png" height="340"/>
 </p>
 
 It supports image formats that are supported by [Jimp](https://github.com/oliver-moran/jimp) (`JPEG`, `PNG`, `BMP`, `TIFF` and `GIF`) and works with default emojis, custom emojis, image links and attachments. The size can be customized, up to 30x50 emojis in server channels and 50x200 emojis in direct messages.
