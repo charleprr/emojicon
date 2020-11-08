@@ -3,7 +3,7 @@ module.exports.list = require('../emojis.json');
 
 // The default emoji for
 // transparent backgrounds.
-module.exports.BLANK = ':heavy_minus_sign:';
+module.exports.BLANK;
 
 /**
  * Find one emoji that matches
