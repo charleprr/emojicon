@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const Emoji = require('./lib/emoji');
-const Image = require('./lib/image');
-const Log = require('./lib/log');
+const Emoji = require('./libs/emoji');
+const Image = require('./libs/image');
+const Log = require('./libs/log');
 const helpMessage = require('./help.json');
 
 /**
@@ -37,11 +37,13 @@ client.on('message', async m => {
     if (m.guild) {
         const permissions = m.channel.permissionsFor(m.guild.me);
         if (!permissions.has('SEND_MESSAGES')) return;
-        if (permissions.has('USE_EXTERNAL_EMOJIS') && config.blank !== '') {
+        if (permissions.has('USE_EXTERNAL_EMOJIS') && config.blank) {
             Emoji.BLANK = config.blank;
         } else {
             Emoji.BLANK = ':heavy_minus_sign:';
         }
+    } else {
+        Emoji.BLANK = config.blank;
     }
 
     // Parse message arguments
