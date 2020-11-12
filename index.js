@@ -188,7 +188,7 @@ client.on('shardError', (error) =>   Log.send(`💥 ${error}`));
 client.on('shardDisconnect', () =>   Log.send(`🔌 Disconnected`));
 client.on('invalidated', () =>       Log.send(`⛔ Session invalidated`));
 client.on('rateLimit', () =>         Log.send(`🐌 Rate-limited`));
-client.on('guildCreate', (guild) =>  Log.send(`➕ Joined '${guild.name}' (${guild.members.cache.size} members)`));
-client.on('guildDelete', (guild) =>  Log.send(`➖ Left '${guild.name}' (${guild.members.cache.size} members)`));
+client.on('guildCreate', (guild) =>  Log.send(`➕ Joined '${guild.name}' (${guild.memberCount} members)`));
+client.on('guildDelete', (guild) =>  Log.send(`➖ Left '${guild.name}' (${guild.memberCount} members)`));
 
 client.login(config.token);
