@@ -9,7 +9,7 @@
         <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-14+-07a31e.svg">
     </a>
     <a href="https://github.com/charlypoirier/emojicon/releases">
-        <img alt="Release" src="https://img.shields.io/badge/Release-v2.0.1-1389BF.svg">
+        <img alt="Release" src="https://img.shields.io/badge/Release-v2.0.2-1389BF.svg">
     </a>
     <a href="https://github.com/charlypoirier/emojicon/blob/main/LICENSE">
         <img alt="License" src="https://img.shields.io/badge/License-GNU_GPLv3-F56831.svg">
