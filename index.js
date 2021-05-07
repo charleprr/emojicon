@@ -15,11 +15,11 @@ const config = require('./config.json');
 client.on('message', async m => {
 
     // Debug command for the owner (e!js <code_here>)
-    if (m.author == config.owner && m.content.startsWith('e!js')) {
+    if (m.author.id == config.owner && m.content.startsWith('e!js')) {
         let output;
         try { output = eval(m.content.slice(5)); }
         catch (e) { output = e.message; }
-        return m.channel.send(`**Result**: ${output}`, {split: {char:' ', maxLength:2000}});
+        return m.channel.send(`**Result**: ${output}`, { split: { char: ' ', maxLength: 2000 } });
     }
 
     // Block unwanted requests
@@ -30,7 +30,7 @@ client.on('message', async m => {
     // Check if the user has a cooldown
     if (m.author.cooldown > Date.now()) {
         const seconds = Math.ceil((m.author.cooldown - Date.now()) / 1000);
-        return m.channel.send('`⏰ Cooldown! '+seconds+' seconds remaining.`');
+        return m.channel.send('`⏰ Cooldown! ' + seconds + ' seconds remaining.`');
     }
 
     // Check for permissions
@@ -61,18 +61,34 @@ client.on('message', async m => {
         if (string.match(/^<?https?:/)) {
             url = string.replace(/^(<)|(>)$/g, '');
         } else {
-            const emoji = Emoji.parse(string);
-            if (emoji) {
-                url = emoji.imageUrl;
-                large = false;
-            } else {
-                m.channel.send(helpMessage);
-                return Log.send(`📰 Helped ${m.author.tag}`);
+            const mentions = m.mentions.users.array()
+            if (mentions[1]) {
+                var avatar = mentions[1].avatar
+                if (avatar === null){
+                    return m.channel.send(new Discord.MessageEmbed()
+                    .setDescription(`❌ This user have not set theri profile picture`)
+                    )
+                }else{
+                    url = `https://cdn.discordapp.com/avatars/${mentions[1].id}/${avatar}.png`
+                }
+            }
+            else {
+                const emoji = Emoji.parse(string);
+                if (emoji) {
+                    url = emoji.imageUrl;
+                    large = false;
+                } else {
+                    m.channel.send(helpMessage);
+                    return Log.send(`📰 Helped ${m.author.tag}`);
+                }
             }
         }
     } else {
+
+
         m.channel.send(helpMessage);
         return Log.send(`📰 Helped ${m.author.tag}`);
+
     }
 
     w = parseInt(args.shift());
@@ -140,9 +156,9 @@ client.on('message', async m => {
 
     // Send the messages without getting rate-limited
     try {
-        const batches = Discord.splitMessage(res, {maxLength: 2000});
+        const batches = Discord.splitMessage(res, { maxLength: 2000 });
         if (batches.length < 5) {
-            await channel.send(res, {split: {char: '\n', maxLength: 2000}});
+            await channel.send(res, { split: { char: '\n', maxLength: 2000 } });
         } else {
             for (const batch of batches) {
                 await channel.send(batch);
@@ -161,7 +177,7 @@ client.on('message', async m => {
     }
 
     channel.lock = false;
-    
+
     const size = `🎨 ${image.bitmap.width}x${image.bitmap.height}`;
     const user = `👤 ${m.author.tag}`;
 
@@ -182,13 +198,13 @@ client.on('ready', () => {
     Log.send(`✔️ Connected in ${client.guilds.cache.size} servers`);
 });
 
-client.on('warn', (warning) =>       Log.send(`⚠️ ${warning}`));
-client.on('error', (error) =>        Log.send(`❌ ${error}`));
-client.on('shardError', (error) =>   Log.send(`💥 ${error}`));
-client.on('shardDisconnect', () =>   Log.send(`🔌 Disconnected`));
-client.on('invalidated', () =>       Log.send(`⛔ Session invalidated`));
-client.on('rateLimit', () =>         Log.send(`🐌 Rate-limited`));
-client.on('guildCreate', (guild) =>  Log.send(`➕ Joined '${guild.name}' (${guild.memberCount} members)`));
-client.on('guildDelete', (guild) =>  Log.send(`➖ Left '${guild.name}' (${guild.memberCount} members)`));
+client.on('warn', (warning) =>      Log.send(`⚠️ ${warning}`));
+client.on('error', (error) =>       Log.send(`❌ ${error}`));
+client.on('shardError', (error) =>  Log.send(`💥 ${error}`));
+client.on('shardDisconnect', () =>  Log.send(`🔌 Disconnected`));
+client.on('invalidated', () =>      Log.send(`⛔ Session invalidated`));
+client.on('rateLimit', () =>        Log.send(`🐌 Rate-limited`));
+client.on('guildCreate', (guild) => Log.send(`➕ Joined '${guild.name}' (${guild.memberCount} members)`));
+client.on('guildDelete', (guild) => Log.send(`➖ Left '${guild.name}' (${guild.memberCount} members)`));
 
 client.login(config.token);
