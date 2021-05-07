@@ -63,16 +63,8 @@ client.on('message', async m => {
         } else {
             const mentions = m.mentions.users.array()
             if (mentions[1]) {
-                var avatar = mentions[1].avatar
-                if (avatar === null){
-                    return m.channel.send(new Discord.MessageEmbed()
-                    .setDescription(`❌ This user have not set theri profile picture`)
-                    )
-                }else{
-                    url = `https://cdn.discordapp.com/avatars/${mentions[1].id}/${avatar}.png`
-                }
-            }
-            else {
+                url = mentions[1].displayAvatarURL({format:"png"})
+            } else {
                 const emoji = Emoji.parse(string);
                 if (emoji) {
                     url = emoji.imageUrl;
@@ -84,11 +76,8 @@ client.on('message', async m => {
             }
         }
     } else {
-
-
         m.channel.send(helpMessage);
         return Log.send(`📰 Helped ${m.author.tag}`);
-
     }
 
     w = parseInt(args.shift());
