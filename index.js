@@ -181,6 +181,9 @@ client.on('message', async m => {
 
 client.on('ready', () => {
     client.user.setActivity('with emojis, ping me!');
+    setInterval(() => {
+        client.user.setActivity('with emojis, ping me!');
+    }, 60000);
     if (config.logs && config.logs !== '') {
         Log.channel = client.channels.cache.get(config.logs);
     }
