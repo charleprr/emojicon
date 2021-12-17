@@ -172,9 +172,9 @@ client.on('messageCreate', async m => {
 
     if (m.guild) {
         const server = `📰 ${m.guild.name}`;
-        Log.send(`${size}\` \`${user}\` \`${server}`, new Discord.MessageAttachment(url));
+        Log.send(`${size}\` \`${user}\` \`${server}`);
     } else {
-        Log.send(`${size}\` \`${user}`, new Discord.MessageAttachment(url));
+        Log.send(`${size}\` \`${user}`);
     }
 
 });
