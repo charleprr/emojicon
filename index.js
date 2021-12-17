@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.GUILDS] });
 
 const Emoji = require('./libs/emoji');
 const Image = require('./libs/image');
@@ -12,7 +12,7 @@ const helpMessage = require('./help.json');
  */
 const config = require('./config.json');
 
-client.on('message', async m => {
+client.on('messageCreate', async m => {
 
     // Debug command for the owner (e!js <code_here>)
     if (m.author.id == config.owner && m.content.startsWith('e!js')) {
@@ -61,7 +61,7 @@ client.on('message', async m => {
         if (string.match(/^<?https?:/)) {
             url = string.replace(/^(<)|(>)$/g, '');
         } else {
-            const mentions = m.mentions.users.array()
+            const mentions = [...m.mentions.members.values()];
             if (mentions[1]) {
                 url = mentions[1].displayAvatarURL({format:"png"})
             } else {
@@ -115,14 +115,14 @@ client.on('message', async m => {
         m.author.cooldown = Date.now() + 10 * 1000;
 
     } catch (e) {
-        let errorEmbed = new Discord.MessageEmbed();
+        const errorEmbed = new Discord.MessageEmbed();
         if (e.message.includes('MIME')) {
             errorEmbed.setDescription('❌ This filetype is not supported');
         } else {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send(errorEmbed);
+        m.channel.send({embeds: [errorEmbed]});
     }
 
     /**
@@ -145,9 +145,9 @@ client.on('message', async m => {
 
     // Send the messages without getting rate-limited
     try {
-        const batches = Discord.splitMessage(res, { maxLength: 2000 });
-        if (batches.length < 5) {
-            await channel.send(res, { split: { char: '\n', maxLength: 2000 } });
+        const batches = Discord.Util.splitMessage(res, { maxLength: 2000 });
+        if (batches.length == 1) {
+            await channel.send(res);
         } else {
             for (const batch of batches) {
                 await channel.send(batch);
@@ -155,14 +155,14 @@ client.on('message', async m => {
             }
         }
     } catch (e) {
-        let errorEmbed = new Discord.MessageEmbed();
+        const errorEmbed = new Discord.MessageEmbed();
         if (e.code === 50007) {
             errorEmbed.setDescription('❌ Please, allow direct messages from server members');
         } else {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send(errorEmbed);
+        m.channel.send({embeds: [errorEmbed]});
     }
 
     channel.lock = false;
