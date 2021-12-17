@@ -6,7 +6,7 @@
 </h1>
 <p align="center">
     <a href="https://nodejs.org/en/">
-        <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-14+-07a31e.svg">
+        <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-16.6+-07a31e.svg">
     </a>
     <a href="https://github.com/charlypoirier/emojicon/releases">
         <img alt="Release" src="https://img.shields.io/badge/Release-v2.0.2-1389BF.svg">
