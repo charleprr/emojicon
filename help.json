@@ -1,5 +1,5 @@
 {
-    "embed": {
+    "embeds": [{
         "color": 6680040,
         "author": {
             "name": "Need help?",
@@ -16,5 +16,5 @@
                 "value": "<@591203757287538690> 🎉 `width`\n<@591203757287538690> 🍍 `width` `height`\n\n[Support server](https://discord.gg/xDMAxZD)\n[Vote for Emojicon](https://top.gg/bot/591203757287538690)\n[Source code on GitHub](https://github.com/charlypoirier/emojicon)"
             }
         ]
-    }
+    }]
 }
