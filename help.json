@@ -1,7 +1,7 @@
 {
   "embeds": [
     {
-      "description": "Give me an image to convert into emojis!\n[Invite me](https://discord.com/api/oauth2/authorize?client_id=591203757287538690&permissions=274878254080&scope=bot+applications.commands)",
+      "description": "Give me an image to convert into emojis!\n[Invite me](https://discord.com/api/oauth2/authorize?client_id=591203757287538690&permissions=274878188544&scope=bot+applications.commands)",
       "color": 6680040,
       "fields": [
         {
