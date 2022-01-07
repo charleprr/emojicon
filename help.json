@@ -1,20 +1,22 @@
 {
-    "embeds": [{
-        "color": 6680040,
-        "author": {
-            "name": "Need help?",
-            "icon_url": "https://i.ibb.co/sHFxx0h/Emojicon.png"
+  "embeds": [
+    {
+      "description": "Give me an image to convert into emojis!\n[Invite me](https://discord.com/api/oauth2/authorize?client_id=591203757287538690&permissions=274878254080&scope=bot+applications.commands)",
+      "color": 6680040,
+      "fields": [
+        {
+          "name": "Example",
+          "value": "<@591203757287538690> 🏝️"
         },
-        "description": "Give me an image to convert into emojis!\n[Invite me](https://discordapp.com/api/oauth2/authorize?client_id=591203757287538690&permissions=0&scope=bot)",
-        "fields": [
-            {
-                "name": "Example",
-                "value": "<@591203757287538690> 🏝️"
-            },
-            {
-                "name": "Size customization",
-                "value": "<@591203757287538690> 🎉 `width`\n<@591203757287538690> 🍍 `width` `height`\n\n[Support server](https://discord.gg/xDMAxZD)\n[Vote for Emojicon](https://top.gg/bot/591203757287538690)\n[Source code on GitHub](https://github.com/charlypoirier/emojicon)"
-            }
-        ]
-    }]
+        {
+          "name": "Size Customization",
+          "value": "<@591203757287538690> 🎉 `<width>`\n<@591203757287538690> 🍍 `<width> <height>`\n\n[Support server](https://discord.gg/xDMAxZD)\n[Vote for Emojicon](https://top.gg/bot/591203757287538690)\n[Source code on GitHub](https://github.com/charlypoirier/emojicon)"
+        }
+      ],
+      "author": {
+        "name": "Need help?",
+        "icon_url": "https://i.ibb.co/sHFxx0h/Emojicon.png"
+      }
+    }
+  ]
 }
