@@ -1,4 +1,6 @@
+// @ts-nocheck
 const Discord = require('discord.js');
+const multiDither = require('multidither');
 const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.GUILDS] });
 
 const Emoji = require('./libs/emoji');
@@ -11,6 +13,10 @@ const helpMessage = require('./help.json');
  * @see README.md
  */
 const config = require('./config.json');
+if (typeof config.dithering == 'undefined') config.dithering = true;
+const dither = new multiDither.FloydSteinbergDither(undefined, new multiDither.ColorPalette(
+    Emoji.list.map(e => e.color)
+))
 
 client.on('messageCreate', async m => {
 
@@ -63,7 +69,7 @@ client.on('messageCreate', async m => {
         } else {
             const mentions = [...m.mentions.members.values()];
             if (mentions[1]) {
-                url = mentions[1].displayAvatarURL({format:"png"})
+                url = mentions[1].displayAvatarURL({ format: "png" })
             } else {
                 const emoji = Emoji.parse(string);
                 if (emoji) {
@@ -99,6 +105,11 @@ client.on('messageCreate', async m => {
         // Open the image and resize it
         image = await Image.open(url, w, h);
 
+        if (typeof config.dithering !== 'undefined' && config.dithering) {
+            dither.img = image;
+            image = dither.dither('', false);
+        }
+
         // Check if height limit is exceeded after resizing
         if (image.bitmap.height > 200) return channel.send('`📐 Too tall!`');
 
@@ -122,7 +133,7 @@ client.on('messageCreate', async m => {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send({embeds: [errorEmbed]});
+        m.channel.send({ embeds: [errorEmbed] });
     }
 
     /**
@@ -162,7 +173,7 @@ client.on('messageCreate', async m => {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send({embeds: [errorEmbed]});
+        m.channel.send({ embeds: [errorEmbed] });
     }
 
     channel.lock = false;
@@ -190,12 +201,12 @@ client.on('ready', () => {
     Log.send(`✔️ Connected in ${client.guilds.cache.size} servers`);
 });
 
-client.on('warn', (warning) =>      Log.send(`⚠️ ${warning}`));
-client.on('error', (error) =>       Log.send(`❌ ${error}`));
-client.on('shardError', (error) =>  Log.send(`💥 ${error}`));
-client.on('shardDisconnect', () =>  Log.send(`🔌 Disconnected`));
-client.on('invalidated', () =>      Log.send(`⛔ Session invalidated`));
-client.on('rateLimit', () =>        Log.send(`🐌 Rate-limited`));
+client.on('warn', (warning) => Log.send(`⚠️ ${warning}`));
+client.on('error', (error) => Log.send(`❌ ${error}`));
+client.on('shardError', (error) => Log.send(`💥 ${error}`));
+client.on('shardDisconnect', () => Log.send(`🔌 Disconnected`));
+client.on('invalidated', () => Log.send(`⛔ Session invalidated`));
+client.on('rateLimit', () => Log.send(`🐌 Rate-limited`));
 client.on('guildCreate', (guild) => Log.send(`➕ Joined '${guild.name}' (${guild.memberCount} members)`));
 client.on('guildDelete', (guild) => Log.send(`➖ Left '${guild.name}' (${guild.memberCount} members)`));
 
