@@ -201,12 +201,12 @@ client.on('ready', () => {
     Log.send(`✔️ Connected in ${client.guilds.cache.size} servers`);
 });
 
-client.on('warn', (warning) => Log.send(`⚠️ ${warning}`));
-client.on('error', (error) => Log.send(`❌ ${error}`));
-client.on('shardError', (error) => Log.send(`💥 ${error}`));
-client.on('shardDisconnect', () => Log.send(`🔌 Disconnected`));
-client.on('invalidated', () => Log.send(`⛔ Session invalidated`));
-client.on('rateLimit', () => Log.send(`🐌 Rate-limited`));
+client.on('warn', (warning) =>      Log.send(`⚠️ ${warning}`));
+client.on('error', (error) =>       Log.send(`❌ ${error}`));
+client.on('shardError', (error) =>  Log.send(`💥 ${error}`));
+client.on('shardDisconnect', () =>  Log.send(`🔌 Disconnected`));
+client.on('invalidated', () =>      Log.send(`⛔ Session invalidated`));
+client.on('rateLimit', () =>        Log.send(`🐌 Rate-limited`));
 client.on('guildCreate', (guild) => Log.send(`➕ Joined '${guild.name}' (${guild.memberCount} members)`));
 client.on('guildDelete', (guild) => Log.send(`➖ Left '${guild.name}' (${guild.memberCount} members)`));
 
