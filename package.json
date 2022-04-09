@@ -6,7 +6,7 @@
     "dependencies": {
         "discord.js": "^13.3.1",
         "jimp": "^0.16.1",
-        "mocha": "^8.2.0"
+        "multidither": "^1.0.0"
     },
     "keywords": [
         "discord",
@@ -22,5 +22,8 @@
         "test": "mocha ./tests -s 750"
     },
     "author": "Charly Poirier",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "mocha": "^8.2.0"
+    }
 }
