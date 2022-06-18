@@ -43,8 +43,7 @@ Create a new `config.json` file at the root of the project directory, as such:
     "token": "", // Your bot's token
     "owner": "", // Your user ID (optional)
     "blank": "", // A transparent emoji (optional)
-    "logs":  "",  // A Discord channel ID for logs (optional)
-    "dithering": true // Whether to use dithering default on (optional)
+    "logs":  ""  // A Discord channel ID for logs (optional)
 }
 ```
 
