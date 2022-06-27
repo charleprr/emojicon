@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const multiDither = require('multidither');
 const client = new Discord.Client({
     intents: [
         Discord.Intents.FLAGS.GUILD_MESSAGES,
@@ -18,6 +19,10 @@ const helpMessage = require('./help.json');
  * @see README.md
  */
 const config = require('./config.json');
+
+const dither = new multiDither.FloydSteinbergDither(undefined, new multiDither.ColorPalette(
+    Emoji.list.map(e => e.color)
+));
 
 client.on('messageCreate', async m => {
 
@@ -70,7 +75,7 @@ client.on('messageCreate', async m => {
         } else {
             const mentions = [...m.mentions.members?.values()];
             if (mentions && mentions[1]) {
-                url = mentions[1].displayAvatarURL({format:"png"})
+                url = mentions[1].displayAvatarURL({ format: "png" })
             } else {
                 const emoji = Emoji.parse(string);
                 if (emoji) {
@@ -106,6 +111,9 @@ client.on('messageCreate', async m => {
         // Open the image and resize it
         image = await Image.open(url, w, h);
 
+        dither.img = image;
+        image = dither.dither('', false);
+
         // Check if height limit is exceeded after resizing
         if (image.bitmap.height > 200) return channel.send('`📐 Too tall!`');
 
@@ -129,7 +137,7 @@ client.on('messageCreate', async m => {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send({embeds: [errorEmbed]});
+        m.channel.send({ embeds: [errorEmbed] });
     }
 
     /**
@@ -169,7 +177,7 @@ client.on('messageCreate', async m => {
             errorEmbed.setDescription('❌ Sorry, something went wrong');
             Log.send(`❌ ${e.message}`);
         }
-        m.channel.send({embeds: [errorEmbed]});
+        m.channel.send({ embeds: [errorEmbed] });
     }
 
     channel.lock = false;

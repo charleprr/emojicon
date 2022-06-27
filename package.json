@@ -1,26 +1,29 @@
 {
-    "name": "emojicon",
-    "version": "2.0.2",
-    "description": "A Discord bot that converts images into emojis!",
-    "main": "index.js",
-    "dependencies": {
-        "discord.js": "^13.3.1",
-        "jimp": "^0.16.1",
-        "mocha": "^8.2.0"
-    },
-    "keywords": [
-        "discord",
-        "emojis",
-        "emoji",
-        "media",
-        "bot",
-        "fun",
-        "art"
-    ],
-    "scripts": {
-        "start": "node index.js",
-        "test": "mocha ./tests -s 750"
-    },
-    "author": "Charly Poirier",
-    "license": "ISC"
+  "name": "emojicon",
+  "version": "2.1.0",
+  "description": "A Discord bot that converts images into emojis!",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "jimp": "^0.16.1",
+    "multidither": "^1.0.5"
+  },
+  "keywords": [
+    "discord",
+    "emojis",
+    "emoji",
+    "media",
+    "bot",
+    "fun",
+    "art"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha ./tests -s 750"
+  },
+  "author": "Charly Poirier",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.2.0"
+  }
 }

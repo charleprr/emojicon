@@ -21,6 +21,7 @@
 </p>
 
 ## Overview
+
 A Discord bot that converts images into emojis!
 
 <p align="center">
@@ -32,9 +33,11 @@ It supports image formats that are supported by [Jimp](https://github.com/oliver
 [Invite the bot](https://discord.com/api/oauth2/authorize?client_id=591203757287538690&permissions=274878188544&scope=bot+applications.commands) to your server or [join our support server](https://discord.gg/xDMAxZD) for updates, early new features and special roles.
 
 ## Installation
+
 Run `npm install` to install dependencies.
 
 Create a new `config.json` file at the root of the project directory, as such:
+
 ```js
 {
     "token": "", // Your bot's token
@@ -47,9 +50,11 @@ Create a new `config.json` file at the root of the project directory, as such:
 Run `npm start` to start the bot.
 
 ## Contributing
+
 I am always looking for improvements, feel free to contribute to this project!<br/>
 You can star this repository, send suggestions and ideas, open issues and create pull requests.
 
 ## License
+
 Released under the [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) License.<br/>
 Emoji assets are from [Twemoji](https://github.com/twitter/twemoji) and licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
