@@ -111,10 +111,8 @@ client.on('messageCreate', async m => {
         // Open the image and resize it
         image = await Image.open(url, w, h);
 
-
         dither.img = image;
         image = dither.dither('', false);
-
 
         // Check if height limit is exceeded after resizing
         if (image.bitmap.height > 200) return channel.send('`📐 Too tall!`');
