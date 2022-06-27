@@ -1,6 +1,13 @@
 const Discord = require('discord.js');
 const multiDither = require('multidither');
-const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.GUILDS] });
+const client = new Discord.Client({
+    intents: [
+        Discord.Intents.FLAGS.GUILD_MESSAGES,
+        Discord.Intents.FLAGS.GUILDS,
+        Discord.Intents.FLAGS.DIRECT_MESSAGES
+    ],
+    partials: ['CHANNEL']
+});
 
 const Emoji = require('./libs/emoji');
 const Image = require('./libs/image');
@@ -66,9 +73,9 @@ client.on('messageCreate', async m => {
         if (string.match(/^<?https?:/)) {
             url = string.replace(/^(<)|(>)$/g, '');
         } else {
-            const mentions = [...m.mentions.members.values()];
-            if (mentions[1]) {
-                url = mentions[1].displayAvatarURL({ format: "png" });
+            const mentions = [...m.mentions.members?.values()];
+            if (mentions && mentions[1]) {
+                url = mentions[1].displayAvatarURL({ format: "png" })
             } else {
                 const emoji = Emoji.parse(string);
                 if (emoji) {
@@ -104,10 +111,8 @@ client.on('messageCreate', async m => {
         // Open the image and resize it
         image = await Image.open(url, w, h);
 
-
         dither.img = image;
         image = dither.dither('', false);
-
 
         // Check if height limit is exceeded after resizing
         if (image.bitmap.height > 200) return channel.send('`📐 Too tall!`');
