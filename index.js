@@ -1,5 +1,12 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILD_MESSAGES, Discord.Intents.FLAGS.GUILDS] });
+const client = new Discord.Client({
+    intents: [
+        Discord.Intents.FLAGS.GUILD_MESSAGES,
+        Discord.Intents.FLAGS.GUILDS,
+        Discord.Intents.FLAGS.DIRECT_MESSAGES
+    ],
+    partials: ['CHANNEL']
+});
 
 const Emoji = require('./libs/emoji');
 const Image = require('./libs/image');
@@ -61,8 +68,8 @@ client.on('messageCreate', async m => {
         if (string.match(/^<?https?:/)) {
             url = string.replace(/^(<)|(>)$/g, '');
         } else {
-            const mentions = [...m.mentions.members.values()];
-            if (mentions[1]) {
+            const mentions = m.mentions.members?.values();
+            if (mentions && mentions[1]) {
                 url = mentions[1].displayAvatarURL({format:"png"})
             } else {
                 const emoji = Emoji.parse(string);
