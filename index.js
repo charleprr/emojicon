@@ -68,7 +68,7 @@ client.on('messageCreate', async m => {
         if (string.match(/^<?https?:/)) {
             url = string.replace(/^(<)|(>)$/g, '');
         } else {
-            const mentions = m.mentions.members?.values();
+            const mentions = [...m.mentions.members?.values()];
             if (mentions && mentions[1]) {
                 url = mentions[1].displayAvatarURL({format:"png"})
             } else {
