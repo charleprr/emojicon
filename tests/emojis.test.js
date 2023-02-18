@@ -15,14 +15,14 @@ describe("Emojis", () => {
         const surrogates = emojis.map(emoji => emoji.surrogates);
         for (let i = 0; i < surrogates.length; ++i) {
             if (surrogates.indexOf(surrogates[i]) !== i) {
-                assert.fail(`Duplicate surrogates "${surrogates[i]}".`);
+                assert.fail(`Duplicate surrogate "${surrogates[i]}".`);
             }
         }
 
         const codepoints = emojis.map(emoji => emoji.codepoints);
         for (let i = 0; i < codepoints.length; ++i) {
             if (codepoints.indexOf(codepoints[i]) !== i) {
-                assert.fail(`Duplicate codepoints "${codepoints[i]}".`);
+                assert.fail(`Duplicate codepoint "${codepoints[i]}".`);
             }
         }
 
