@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^13.3.1",
-    "jimp": "^0.16.1",
+    "jimp": "^0.22.5",
     "multidither": "^1.0.5"
   },
   "keywords": [
@@ -24,6 +24,6 @@
   "author": "Charly Poirier",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^8.2.0"
+    "mocha": "^10.2.0"
   }
 }
