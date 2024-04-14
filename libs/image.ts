@@ -18,7 +18,7 @@ export async function open(url: string, w: number, h: number): Promise<Jimp> {
  * Converts an integer color into
  * an RGBA color object.
  */
-export function toRGBA(color: number): any {
+export function toRGBA(color: number): { r: number; g: number; b: number; a: number } {
   return Jimp.intToRGBA(color);
 }
 
@@ -26,7 +26,7 @@ export function toRGBA(color: number): any {
  * Computes the average pixel color of an
  * image from an URL and returns it.
  */
-export async function averageColor(url: string): Promise<any> {
+export async function averageColor(url: string): Promise<{ r: number; g: number; b: number }> {
   const image = await open(url, 1, 1);
   const pixel = toRGBA(image.getPixelColor(0, 0));
   const alpha = pixel.a / 255;

@@ -159,8 +159,6 @@ client.on("messageCreate", async (message: Discord.Message) => {
   }
 
   /**
-   * ✨ This is where the magic happens ✨
-   *
    * For every pixel in the image, find the emoji
    * with the closest color to it.
    *

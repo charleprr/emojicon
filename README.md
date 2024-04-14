@@ -8,16 +8,16 @@
     <a href="https://nodejs.org/en/">
         <img alt="NodeJS" src="https://img.shields.io/badge/NodeJS-16.6+-07a31e.svg">
     </a>
-    <a href="https://github.com/charlypoirier/emojicon/releases">
+    <a href="https://github.com/charleprr/emojicon/releases">
         <img alt="Release" src="https://img.shields.io/badge/Release-v2.1.1-1389BF.svg">
     </a>
-    <a href="https://github.com/charlypoirier/emojicon/blob/main/LICENSE">
+    <a href="https://github.com/charleprr/emojicon/blob/main/LICENSE">
         <img alt="License" src="https://img.shields.io/badge/License-GNU_GPLv3-F56831.svg">
     </a><br/>
-    <a href="https://github.com/charlypoirier/emojicon#overview">Overview</a> •
-    <a href="https://github.com/charlypoirier/emojicon#installation">Installation</a> •
-    <a href="https://github.com/charlypoirier/emojicon#contributing">Contributing</a> •
-    <a href="https://github.com/charlypoirier/emojicon#license">License</a>
+    <a href="https://github.com/charleprr/emojicon#overview">Overview</a> •
+    <a href="https://github.com/charleprr/emojicon#installation">Installation</a> •
+    <a href="https://github.com/charleprr/emojicon#contributing">Contributing</a> •
+    <a href="https://github.com/charleprr/emojicon#license">License</a>
 </p>
 
 ## Overview

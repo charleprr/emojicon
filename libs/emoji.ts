@@ -65,7 +65,7 @@ export function parse(text: string): any {
  * Given an RGB(A) color, find the emoji with the closest
  * average color and return its identifier.
  */
-export function closest(color: any): any {
+export function closest(color: { r: number; g: number; b: number; a?: number }): string {
   if (!color.a) return customBlankEmoji;
   const opacity = color.a / 255;
   const target = {
@@ -73,7 +73,7 @@ export function closest(color: any): any {
     g: Math.round(color.g * opacity + 57 * (1 - opacity)),
     b: Math.round(color.b * opacity + 63 * (1 - opacity)),
   };
-  let result: any;
+  let result: string;
   let distance: number;
   let minimum = Infinity;
   for (const emoji of list.filter(e => e.usable)) {
